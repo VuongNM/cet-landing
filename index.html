@@ -52,10 +52,24 @@
   .hero {
     background: linear-gradient(160deg, #16235b 0%, #0097b2 60%, #afe5f5 100%);
     color: #fff;
-    text-align: center;
-    padding: 90px 20px 130px;
+    padding: 70px 20px 120px;
     position: relative;
     overflow: hidden;
+  }
+  .hero-inner {
+    max-width: 1080px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    gap: 48px;
+    align-items: center;
+    position: relative; z-index: 1;
+  }
+  .hero-copy { text-align: left; }
+  .hero-form { scroll-margin-top: 90px; }
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 36px; }
+    .hero-copy { text-align: center; }
+    .hero-copy .actions { justify-content: center; }
   }
   .hero::after {   /* angled divider like the original site */
     content: "";
@@ -72,15 +86,18 @@
     margin-bottom: 24px;
   }
   .hero h1 {
-    font-size: clamp(1.8rem, 4.5vw, 3rem);
+    font-size: clamp(1.7rem, 3.2vw, 2.5rem);
     line-height: 1.2; letter-spacing: 1px;
     text-transform: uppercase; font-weight: 800;
-    max-width: 800px; margin: 0 auto 16px;
+    margin: 0 0 16px;
     text-shadow: 0 2px 12px rgba(0,0,0,.25);
   }
   .hero p.sub {
-    max-width: 640px; margin: 0 auto 36px;
-    font-size: 1.05rem; opacity: .95;
+    max-width: 560px; margin: 0 0 32px;
+    font-size: 1.02rem; opacity: .95;
+  }
+  @media (max-width: 900px) {
+    .hero p.sub { margin: 0 auto 32px; }
   }
   .btn {
     display: inline-block;
@@ -98,7 +115,7 @@
     color: var(--accent);
   }
   .btn.ghost:hover { background: var(--accent); color: #fff; }
-  .hero .actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .hero .actions { display: flex; gap: 16px; justify-content: flex-start; flex-wrap: wrap; }
   .hero .btn { background: #fff; color: var(--navy); }
   .hero .btn:hover { background: var(--accent-soft); }
   .hero .btn.ghost { background: transparent; border-color: #fff; color: #fff; }
@@ -163,8 +180,17 @@
     max-width: 640px; margin: 0 auto;
     background: #fff; color: var(--ink);
     border-radius: var(--radius);
-    padding: 36px 32px;
+    padding: 30px 28px;
     box-shadow: 0 10px 40px rgba(0,0,0,.25);
+  }
+  .form-wrap .form-title {
+    color: var(--navy); text-transform: uppercase;
+    letter-spacing: 1px; font-size: 1.15rem;
+    margin-bottom: 4px; text-align: center;
+  }
+  .form-wrap .form-sub {
+    font-size: .85rem; color: var(--muted);
+    text-align: center; margin-bottom: 20px;
   }
   .field { margin-bottom: 18px; }
   .field label {
@@ -279,12 +305,82 @@
 
 <!-- ============ HERO ============ -->
 <section class="hero">
-  <div class="tagline">We don't imitate — We innovate · Since 2009</div>
-  <h1>Luyện thi IELTS tại<br>Trung tâm Ngoại ngữ Kiến Tạo</h1>
-  <p class="sub">17 năm kinh nghiệm giảng dạy TOEFL &amp; IELTS · Đối tác chính thức của Hội Đồng Anh từ 2012 · Học phí cân bằng giữa chất lượng và chi phí.</p>
-  <div class="actions">
-    <a class="btn" href="#dang-ky">Đăng ký ngay</a>
-    <a class="btn ghost" href="#khoa-hoc">Xem khóa học</a>
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <div class="tagline">We don't imitate — We innovate · Since 2009</div>
+      <h1>Luyện thi IELTS tại<br>Trung tâm Ngoại ngữ Kiến Tạo</h1>
+      <p class="sub">17 năm kinh nghiệm giảng dạy TOEFL &amp; IELTS · Đối tác chính thức của Hội Đồng Anh từ 2012 · Học phí cân bằng giữa chất lượng và chi phí.</p>
+      <div class="actions">
+        <a class="btn" href="#khoa-hoc">Xem khóa học</a>
+        <a class="btn ghost" href="#khac-biet">Vì sao chọn CET?</a>
+      </div>
+    </div>
+    <div class="hero-form" id="dang-ky">
+    <div class="form-wrap">
+      <h2 class="form-title">Đăng ký khóa học</h2>
+      <p class="form-sub">CET sẽ liên hệ với bạn qua Email hoặc Zalo trong thời gian sớm nhất.</p>
+      <form id="regForm">
+        <input type="text" name="_honey" value="" style="display:none" tabindex="-1" autocomplete="off">
+        <div class="field">
+          <label for="name">Họ và tên <span class="req">*</span></label>
+          <input type="text" id="name" name="ho_ten" required placeholder="Nguyễn Văn A">
+        </div>
+        <div class="field">
+          <label for="phone">Số điện thoại / Zalo <span class="req">*</span></label>
+          <input type="tel" id="phone" name="dien_thoai" required pattern="[0-9+ ]{8,15}" placeholder="09xx xxx xxx">
+          <div class="hint">Chúng tôi ưu tiên liên hệ qua Zalo theo số này.</div>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="ban@email.com">
+        </div>
+        <div class="field">
+          <label for="course">Khóa học quan tâm <span class="req">*</span></label>
+          <select id="course" name="khoa_hoc" required>
+            <option value="" disabled selected>— Chọn khóa học —</option>
+            <option>IELTS 1 - 1 (cá nhân hóa)</option>
+            <option>IELTS Pre</option>
+            <option>IELTS Basic (3.5 - 4.5)</option>
+            <option>IELTS Improver (4.5 - 6.0)</option>
+            <option>IELTS Advanced (6.5 - 7.5+)</option>
+            <option>IELTS Expert (luyện đề)</option>
+            <option>IELTS Expert Upgraded</option>
+            <option>IELTS Expert Practice (online)</option>
+            <option>IELTS General Training</option>
+            <option>Chưa rõ — cần tư vấn</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="schedule">Khung lịch mong muốn</label>
+          <select id="schedule" name="lich_hoc">
+            <option value="" disabled selected>— Chọn lịch học —</option>
+            <option>Thứ 2 - 4 - 6</option>
+            <option>Thứ 3 - 5 - 7</option>
+            <option>Linh hoạt / Học 1-1</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="msg">Lời nhắn</label>
+          <textarea id="msg" name="loi_nhan" rows="4" placeholder="Mục tiêu điểm số, thời gian dự thi, câu hỏi cho CET..."></textarea>
+        </div>
+        <div class="consent">
+          <input type="checkbox" id="agree" required>
+          <label for="agree" style="font-weight:400; text-transform:none; letter-spacing:0; font-size:.88rem;">Tôi đã đọc và hiểu chính sách bảo mật, đồng ý để CET liên hệ tư vấn qua Email hoặc Zalo.</label>
+        </div>
+        <button class="btn" type="submit">Gửi đăng ký</button>
+        <p style="text-align:center; margin-top:14px; font-size:.88rem; color:var(--muted);">
+          Hoặc nhắn Zalo trực tiếp: <a href="https://zalo.me/0869688153" target="_blank" rel="noopener" style="color:var(--accent-dark); font-weight:700;">Zalo Ms. Uyên</a>
+        </p>
+      </form>
+
+      <div id="thankyou">
+        <div class="big">🎉</div>
+        <h3>Cảm ơn bạn đã đăng ký!</h3>
+        <p>CET đã nhận được thông tin và sẽ liên hệ với bạn qua Email hoặc Zalo trong thời gian sớm nhất.</p>
+        <p style="margin-top:10px;">Cần tư vấn ngay? <a href="https://zalo.me/0869688153" target="_blank" rel="noopener" style="color:var(--accent-dark); font-weight:700;">Nhắn Zalo Ms. Uyên</a></p>
+      </div>
+    </div>
+    </div>
   </div>
 </section>
 
@@ -391,80 +487,6 @@
         <div class="icon">🎨</div>
         <h3>Canva &amp; Adobe Express</h3>
         <p>Thỏa sức sáng tạo trong brainstorm, groupwork, Writing và Speaking — không giới hạn.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ REGISTER ============ -->
-<section class="register" id="dang-ky">
-  <div class="container">
-    <div class="section-head">
-      <div class="kicker">Liên hệ</div>
-      <h2>Đăng ký khóa học — Để lại lời nhắn cho CET</h2>
-      <p style="opacity:.85; margin-top:8px;">Chúng tôi sẽ liên hệ với bạn qua Email hoặc Zalo trong thời gian sớm nhất.</p>
-    </div>
-
-    <div class="form-wrap">
-      <form id="regForm">
-        <input type="text" name="_honey" value="" style="display:none" tabindex="-1" autocomplete="off">
-        <div class="field">
-          <label for="name">Họ và tên <span class="req">*</span></label>
-          <input type="text" id="name" name="ho_ten" required placeholder="Nguyễn Văn A">
-        </div>
-        <div class="field">
-          <label for="phone">Số điện thoại / Zalo <span class="req">*</span></label>
-          <input type="tel" id="phone" name="dien_thoai" required pattern="[0-9+ ]{8,15}" placeholder="09xx xxx xxx">
-          <div class="hint">Chúng tôi ưu tiên liên hệ qua Zalo theo số này.</div>
-        </div>
-        <div class="field">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="ban@email.com">
-        </div>
-        <div class="field">
-          <label for="course">Khóa học quan tâm <span class="req">*</span></label>
-          <select id="course" name="khoa_hoc" required>
-            <option value="" disabled selected>— Chọn khóa học —</option>
-            <option>IELTS 1 - 1 (cá nhân hóa)</option>
-            <option>IELTS Pre</option>
-            <option>IELTS Basic (3.5 - 4.5)</option>
-            <option>IELTS Improver (4.5 - 6.0)</option>
-            <option>IELTS Advanced (6.5 - 7.5+)</option>
-            <option>IELTS Expert (luyện đề)</option>
-            <option>IELTS Expert Upgraded</option>
-            <option>IELTS Expert Practice (online)</option>
-            <option>IELTS General Training</option>
-            <option>Chưa rõ — cần tư vấn</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="schedule">Khung lịch mong muốn</label>
-          <select id="schedule" name="lich_hoc">
-            <option value="" disabled selected>— Chọn lịch học —</option>
-            <option>Thứ 2 - 4 - 6</option>
-            <option>Thứ 3 - 5 - 7</option>
-            <option>Linh hoạt / Học 1-1</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="msg">Lời nhắn</label>
-          <textarea id="msg" name="loi_nhan" rows="4" placeholder="Mục tiêu điểm số, thời gian dự thi, câu hỏi cho CET..."></textarea>
-        </div>
-        <div class="consent">
-          <input type="checkbox" id="agree" required>
-          <label for="agree" style="font-weight:400; text-transform:none; letter-spacing:0; font-size:.88rem;">Tôi đã đọc và hiểu chính sách bảo mật, đồng ý để CET liên hệ tư vấn qua Email hoặc Zalo.</label>
-        </div>
-        <button class="btn" type="submit">Gửi đăng ký</button>
-        <p style="text-align:center; margin-top:14px; font-size:.88rem; color:var(--muted);">
-          Hoặc nhắn Zalo trực tiếp: <a href="https://zalo.me/0869688153" target="_blank" rel="noopener" style="color:var(--accent-dark); font-weight:700;">Zalo Ms. Uyên</a>
-        </p>
-      </form>
-
-      <div id="thankyou">
-        <div class="big">🎉</div>
-        <h3>Cảm ơn bạn đã đăng ký!</h3>
-        <p>CET đã nhận được thông tin và sẽ liên hệ với bạn qua Email hoặc Zalo trong thời gian sớm nhất.</p>
-        <p style="margin-top:10px;">Cần tư vấn ngay? <a href="https://zalo.me/0869688153" target="_blank" rel="noopener" style="color:var(--accent-dark); font-weight:700;">Nhắn Zalo Ms. Uyên</a></p>
       </div>
     </div>
   </div>
