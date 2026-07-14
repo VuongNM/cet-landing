@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Đăng ký khóa học IELTS – Trung tâm Ngoại ngữ Kiến Tạo (CET)</title>
+<meta name="description" content="Đăng ký khóa học và luyện thi IELTS tại CET – Trung tâm Ngoại ngữ Kiến Tạo. We don't imitate, we innovate! Since 2009.">
+<style>
+  :root {
+    --accent: #0097b2;        /* teal — chữ "IELTS" trên ảnh khóa học CET */
+    --accent-dark: #007a91;
+    --accent-soft: #dcf1f8;
+    --navy: #16235b;          /* navy — chữ "BASIC" trên ảnh khóa học CET */
+    --charcoal: #16235b;
+    --ink: #1e2a4a;
+    --muted: #5b6b85;
+    --bg: #ffffff;
+    --bg-alt: #eef5fe;
+    --radius: 14px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.6;
+  }
+  img { max-width: 100%; }
+  .container { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+
+  /* ---------- Header ---------- */
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(22,35,91,.97);
+    color: #fff;
+  }
+  .nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 20px; max-width: 1080px; margin: 0 auto;
+  }
+  .brand { font-weight: 800; letter-spacing: 2px; font-size: 1.15rem; }
+  .brand span { color: var(--accent); }
+  nav.menu { display: flex; gap: 22px; flex-wrap: wrap; }
+  nav.menu a {
+    color: #fff; text-decoration: none; font-size: .85rem;
+    letter-spacing: 1.5px; text-transform: uppercase; opacity: .85;
+  }
+  nav.menu a:hover { opacity: 1; color: var(--accent); }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    background: linear-gradient(160deg, #16235b 0%, #0097b2 60%, #afe5f5 100%);
+    color: #fff;
+    text-align: center;
+    padding: 90px 20px 130px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {   /* angled divider like the original site */
+    content: "";
+    position: absolute; left: 0; right: 0; bottom: -1px;
+    height: 70px;
+    background: var(--bg);
+    clip-path: polygon(0 100%, 100% 100%, 100% 0, 50% 70%, 0 0);
+  }
+  .hero .tagline {
+    display: inline-block;
+    border: 1px solid rgba(255,255,255,.6);
+    padding: 6px 18px; border-radius: 999px;
+    font-size: .8rem; letter-spacing: 3px; text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-size: clamp(1.8rem, 4.5vw, 3rem);
+    line-height: 1.2; letter-spacing: 1px;
+    text-transform: uppercase; font-weight: 800;
+    max-width: 800px; margin: 0 auto 16px;
+    text-shadow: 0 2px 12px rgba(0,0,0,.25);
+  }
+  .hero p.sub {
+    max-width: 640px; margin: 0 auto 36px;
+    font-size: 1.05rem; opacity: .95;
+  }
+  .btn {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff; text-decoration: none;
+    font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+    padding: 15px 36px; border-radius: 999px;
+    border: none; cursor: pointer; font-size: .9rem;
+    transition: background .2s, transform .15s;
+  }
+  .btn:hover { background: var(--accent-dark); transform: translateY(-2px); }
+  .btn.ghost {
+    background: transparent;
+    border: 2px solid var(--accent);
+    color: var(--accent);
+  }
+  .btn.ghost:hover { background: var(--accent); color: #fff; }
+  .hero .actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .hero .btn { background: #fff; color: var(--navy); }
+  .hero .btn:hover { background: var(--accent-soft); }
+  .hero .btn.ghost { background: transparent; border-color: #fff; color: #fff; }
+  .hero .btn.ghost:hover { background: #fff; color: var(--navy); }
+
+  /* ---------- Sections ---------- */
+  section { padding: 72px 0; scroll-margin-top: 90px; }
+  .section-head { text-align: center; margin-bottom: 48px; }
+  .section-head .kicker {
+    color: var(--accent-dark); font-size: .8rem;
+    letter-spacing: 3px; text-transform: uppercase; font-weight: 700;
+  }
+  .section-head h2 {
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    text-transform: uppercase; letter-spacing: 1px;
+    color: var(--charcoal); margin-top: 6px;
+  }
+
+  /* ---------- Courses ---------- */
+  .courses { background: var(--bg-alt); }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 22px;
+  }
+  .card {
+    background: #fff; border-radius: var(--radius);
+    padding: 26px 24px;
+    box-shadow: 0 4px 18px rgba(0,0,0,.06);
+    border-top: 4px solid var(--accent);
+    display: flex; flex-direction: column;
+  }
+  .card h3 {
+    text-transform: uppercase; letter-spacing: 1px;
+    color: var(--charcoal); font-size: 1.05rem; margin-bottom: 10px;
+  }
+  .card .meta {
+    font-size: .82rem; color: var(--muted); margin-bottom: 12px;
+    display: flex; flex-direction: column; gap: 3px;
+  }
+  .card p { font-size: .92rem; color: #444; flex: 1; }
+  .card .target {
+    margin-top: 14px; align-self: flex-start;
+    background: var(--accent-soft); color: var(--accent-dark);
+    font-size: .78rem; font-weight: 700; letter-spacing: 1px;
+    padding: 4px 12px; border-radius: 999px; text-transform: uppercase;
+  }
+
+  /* ---------- Why us ---------- */
+  .why .grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+  .why .card { border-top: none; border-left: 4px solid var(--accent); text-align: left; }
+  .why .card .icon { font-size: 1.6rem; margin-bottom: 10px; }
+
+  /* ---------- Register ---------- */
+  .register {
+    background: linear-gradient(160deg, var(--navy) 0%, #0f4d68 100%);
+    color: #fff;
+  }
+  .register .section-head h2 { color: #fff; }
+  .register .section-head .kicker { color: var(--accent); }
+  .form-wrap {
+    max-width: 640px; margin: 0 auto;
+    background: #fff; color: var(--ink);
+    border-radius: var(--radius);
+    padding: 36px 32px;
+    box-shadow: 0 10px 40px rgba(0,0,0,.25);
+  }
+  .field { margin-bottom: 18px; }
+  .field label {
+    display: block; font-weight: 700; font-size: .85rem;
+    letter-spacing: 1px; text-transform: uppercase;
+    color: var(--charcoal); margin-bottom: 6px;
+  }
+  .field label .req { color: #c0392b; }
+  .field input, .field select, .field textarea {
+    width: 100%; padding: 12px 14px;
+    border: 1.5px solid #ddd; border-radius: 8px;
+    font-size: 1rem; font-family: inherit;
+    background: #fdfdfd;
+    transition: border-color .2s;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus {
+    outline: none; border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+  }
+  .field .hint { font-size: .78rem; color: var(--muted); margin-top: 4px; }
+  .consent { display: flex; gap: 10px; align-items: flex-start; font-size: .88rem; margin-bottom: 22px; }
+  .consent input { width: 18px; height: 18px; margin-top: 3px; accent-color: var(--accent-dark); }
+  .form-wrap .btn { width: 100%; }
+  #thankyou {
+    display: none;
+    text-align: center; padding: 30px 10px;
+  }
+  #thankyou .big { font-size: 2.4rem; }
+  #thankyou h3 { color: var(--charcoal); text-transform: uppercase; letter-spacing: 1px; margin: 10px 0 6px; }
+
+  /* ---------- Contact / footer ---------- */
+  footer {
+    background: #101a44; color: #c9d4ea;
+    padding: 48px 0 28px; font-size: .92rem;
+  }
+  footer .cols {
+    display: grid; gap: 32px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    margin-bottom: 32px;
+  }
+  footer h4 {
+    color: #fff; text-transform: uppercase; letter-spacing: 2px;
+    font-size: .9rem; margin-bottom: 12px;
+  }
+  footer a { color: #6fd3e6; text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  footer .legal { font-size: .8rem; color: #8a99c0; }
+  footer .copy {
+    border-top: 1px solid #2a3868; padding-top: 18px;
+    text-align: center; font-size: .8rem; color: #8a99c0;
+  }
+
+  @media (max-width: 640px) {
+    .nav { flex-direction: column; gap: 10px; }
+    nav.menu { justify-content: center; gap: 14px; }
+    section { padding: 56px 0; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brand">CET <span>·</span> KIẾN TẠO</div>
+    <nav class="menu">
+      <a href="#khoa-hoc">Khóa học</a>
+      <a href="#khac-biet">Nổi bật</a>
+      <a href="#dang-ky">Đăng ký</a>
+      <a href="#lien-he">Liên hệ</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="tagline">We don't imitate — We innovate · Since 2009</div>
+  <h1>Luyện thi IELTS tại<br>Trung tâm Ngoại ngữ Kiến Tạo</h1>
+  <p class="sub">17 năm kinh nghiệm giảng dạy TOEFL &amp; IELTS · Đối tác chính thức của Hội Đồng Anh từ 2012 · Học phí cân bằng giữa chất lượng và chi phí.</p>
+  <div class="actions">
+    <a class="btn" href="#dang-ky">Đăng ký ngay</a>
+    <a class="btn ghost" href="#khoa-hoc">Xem khóa học</a>
+  </div>
+</section>
+
+<!-- ============ COURSES ============ -->
+<section class="courses" id="khoa-hoc">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">Tham khảo kỹ lưỡng</div>
+      <h2>Khóa học và luyện thi IELTS</h2>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <h3>IELTS 1 – 1</h3>
+        <div class="meta"><span>🕑 Lịch học linh hoạt</span><span>📋 Liên hệ phòng Ghi Danh</span></div>
+        <p>Chương trình học và luyện thi IELTS được cá nhân hóa nếu học viên không tham dự được những khóa học thông thường tại CET.</p>
+        <span class="target">Cá nhân hóa</span>
+      </div>
+      <div class="card">
+        <h3>IELTS Pre</h3>
+        <div class="meta"><span>🕑 T2-T4-T6 hoặc T3-T5-T7</span><span>📋 90 phút × 3 buổi × 10 tuần</span></div>
+        <p>Khóa học chuẩn bị cho học viên các kỹ năng về từ vựng và cấu trúc văn phạm để theo học lớp IELTS Basic.</p>
+        <span class="target">Nền tảng</span>
+      </div>
+      <div class="card">
+        <h3>IELTS Basic</h3>
+        <div class="meta"><span>🕑 T2-T4-T6 hoặc T3-T5-T7</span><span>📋 150 phút × 3 buổi × 12 tuần</span></div>
+        <p>Học IELTS cơ bản đầy đủ 4 kỹ năng Nghe – Nói – Đọc – Viết.</p>
+        <span class="target">Mục tiêu 3.5 – 4.5</span>
+      </div>
+      <div class="card">
+        <h3>IELTS Improver</h3>
+        <div class="meta"><span>🕑 T2-T4-T6 hoặc T3-T5-T7</span><span>📋 150 phút × 3 buổi × 12 tuần</span></div>
+        <p>Học IELTS trung cấp đầy đủ 4 kỹ năng. Đây là khóa được lựa chọn nhiều nhất tại CET.</p>
+        <span class="target">Mục tiêu 4.5 – 6.0</span>
+      </div>
+      <div class="card">
+        <h3>IELTS Advanced</h3>
+        <div class="meta"><span>🕑 T2-T4-T6 hoặc T3-T5-T7</span><span>📋 150 phút × 3 buổi × 12 tuần</span></div>
+        <p>Khóa IELTS cao cấp đầy đủ 4 kỹ năng với mục tiêu đầu ra cao.</p>
+        <span class="target">Mục tiêu 6.5 – 7.5+</span>
+      </div>
+      <div class="card">
+        <h3>IELTS Expert</h3>
+        <div class="meta"><span>🕑 T2-T4-T6 hoặc T3-T5-T7</span><span>📋 150 phút × 3 buổi × 12 tuần</span></div>
+        <p>Khóa luyện đề chuẩn bị cho kỳ thi IELTS: 1/3 khóa luyện trên giấy cho kỹ năng, phần còn lại trên máy tính cho sức bền.</p>
+        <span class="target">Luyện đề</span>
+      </div>
+      <div class="card">
+        <h3>IELTS Expert Upgraded</h3>
+        <div class="meta"><span>🕑 T2-T4-T6 hoặc T3-T5-T7</span><span>📋 150 phút × 3 buổi × 12 tuần</span></div>
+        <p>Lớp luyện đề IELTS Test Preparation cao cấp với bộ đề mới, dành cho học viên muốn luyện tiếp sau IELTS Expert.</p>
+        <span class="target">Luyện đề nâng cao</span>
+      </div>
+      <div class="card">
+        <h3>IELTS Expert Practice</h3>
+        <div class="meta"><span>🕑 T2-T4-T6 hoặc T3-T5-T7</span><span>📋 150 phút × 3 buổi × 12 tuần</span></div>
+        <p>Lớp dành cho học viên tự luyện đề IELTS Test Preparation. Phù hợp cho các bạn học online.</p>
+        <span class="target">Tự luyện · Online</span>
+      </div>
+      <div class="card">
+        <h3>IELTS General Training</h3>
+        <div class="meta"><span>🕑 T2-T4-T6 hoặc T3-T5-T7</span><span>📋 150 phút × 3 buổi × 12 tuần</span></div>
+        <p>Lớp kỹ năng và luyện thi IELTS General cho mục đích định cư, du lịch hoặc việc làm.</p>
+        <span class="target">Định cư · Việc làm</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY US ============ -->
+<section class="why" id="khac-biet">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">Điều gì làm nên sự khác biệt</div>
+      <h2>Tại Trung tâm Ngoại ngữ Kiến Tạo</h2>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <div class="icon">🇬🇧</div>
+        <h3>Đối tác của British Council</h3>
+        <p>Đăng ký thi IELTS tại CET — đối tác chính thức của Hội Đồng Anh kể từ 2012.</p>
+      </div>
+      <div class="card">
+        <div class="icon">💻</div>
+        <h3>practice.cet-flc.edu.vn</h3>
+        <p>Trang web học / ôn / thực tập IELTS mọi lúc, không giới hạn vị trí địa lý.</p>
+      </div>
+      <div class="card">
+        <div class="icon">👩‍🏫</div>
+        <h3>Đội ngũ tận tâm</h3>
+        <p>Giáo viên và nhân viên nhiệt tình, thân thiện, trách nhiệm, luôn tận tâm với học viên.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🏆</div>
+        <h3>Since 2009</h3>
+        <p>Tự hào 17 năm hoạt động bền bỉ, liên tục, không gián đoạn dù đại dịch.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🎓</div>
+        <h3>Google Workspace for Education</h3>
+        <p>Học tập, quản lý trên nền tảng Google Giáo dục có hỗ trợ của AI.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🎨</div>
+        <h3>Canva &amp; Adobe Express</h3>
+        <p>Thỏa sức sáng tạo trong brainstorm, groupwork, Writing và Speaking — không giới hạn.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REGISTER ============ -->
+<section class="register" id="dang-ky">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">Liên hệ</div>
+      <h2>Đăng ký khóa học — Để lại lời nhắn cho CET</h2>
+      <p style="opacity:.85; margin-top:8px;">Chúng tôi sẽ liên hệ với bạn qua Email hoặc Zalo trong thời gian sớm nhất.</p>
+    </div>
+
+    <div class="form-wrap">
+      <form id="regForm">
+        <input type="text" name="_honey" value="" style="display:none" tabindex="-1" autocomplete="off">
+        <div class="field">
+          <label for="name">Họ và tên <span class="req">*</span></label>
+          <input type="text" id="name" name="ho_ten" required placeholder="Nguyễn Văn A">
+        </div>
+        <div class="field">
+          <label for="phone">Số điện thoại / Zalo <span class="req">*</span></label>
+          <input type="tel" id="phone" name="dien_thoai" required pattern="[0-9+ ]{8,15}" placeholder="09xx xxx xxx">
+          <div class="hint">Chúng tôi ưu tiên liên hệ qua Zalo theo số này.</div>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="ban@email.com">
+        </div>
+        <div class="field">
+          <label for="course">Khóa học quan tâm <span class="req">*</span></label>
+          <select id="course" name="khoa_hoc" required>
+            <option value="" disabled selected>— Chọn khóa học —</option>
+            <option>IELTS 1 - 1 (cá nhân hóa)</option>
+            <option>IELTS Pre</option>
+            <option>IELTS Basic (3.5 - 4.5)</option>
+            <option>IELTS Improver (4.5 - 6.0)</option>
+            <option>IELTS Advanced (6.5 - 7.5+)</option>
+            <option>IELTS Expert (luyện đề)</option>
+            <option>IELTS Expert Upgraded</option>
+            <option>IELTS Expert Practice (online)</option>
+            <option>IELTS General Training</option>
+            <option>Chưa rõ — cần tư vấn</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="schedule">Khung lịch mong muốn</label>
+          <select id="schedule" name="lich_hoc">
+            <option value="" disabled selected>— Chọn lịch học —</option>
+            <option>Thứ 2 - 4 - 6</option>
+            <option>Thứ 3 - 5 - 7</option>
+            <option>Linh hoạt / Học 1-1</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="msg">Lời nhắn</label>
+          <textarea id="msg" name="loi_nhan" rows="4" placeholder="Mục tiêu điểm số, thời gian dự thi, câu hỏi cho CET..."></textarea>
+        </div>
+        <div class="consent">
+          <input type="checkbox" id="agree" required>
+          <label for="agree" style="font-weight:400; text-transform:none; letter-spacing:0; font-size:.88rem;">Tôi đã đọc và hiểu chính sách bảo mật, đồng ý để CET liên hệ tư vấn qua Email hoặc Zalo.</label>
+        </div>
+        <button class="btn" type="submit">Gửi đăng ký</button>
+        <p style="text-align:center; margin-top:14px; font-size:.88rem; color:var(--muted);">
+          Hoặc nhắn Zalo trực tiếp: <a href="https://zalo.me/0869688153" target="_blank" rel="noopener" style="color:var(--accent-dark); font-weight:700;">Zalo Uyên</a>
+        </p>
+      </form>
+
+      <div id="thankyou">
+        <div class="big">🎉</div>
+        <h3>Cảm ơn bạn đã đăng ký!</h3>
+        <p>CET đã nhận được thông tin và sẽ liên hệ với bạn qua Email hoặc Zalo trong thời gian sớm nhất.</p>
+        <p style="margin-top:10px;">Cần tư vấn ngay? <a href="https://zalo.me/0869688153" target="_blank" rel="noopener" style="color:var(--accent-dark); font-weight:700;">Nhắn Zalo Uyên</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER / CONTACT ============ -->
+<footer id="lien-he">
+  <div class="container">
+    <div class="cols">
+      <div>
+        <h4>Trung tâm Ngoại ngữ Kiến Tạo</h4>
+        <p>Creative English Training (CET)<br>
+        628/7 Phan Văn Trị, phường Gò Vấp,<br>Thành phố Hồ Chí Minh</p>
+      </div>
+      <div>
+        <h4>Liên hệ</h4>
+        <p>💬 Zalo Uyên: <a href="https://zalo.me/0869688153" target="_blank" rel="noopener">zalo.me/0869688153</a></p>
+      </div>
+      <div>
+        <h4>Pháp lý</h4>
+        <p class="legal">Quyết định thành lập: 1739/QĐ-GDĐT-TC<br>
+        Quyết định cấp phép dạy học: 770/QĐ-SGDĐT<br>
+        Quyết định công nhận Giám đốc: 1013/QĐ-SGDĐT</p>
+      </div>
+    </div>
+    <div class="copy">"We don't imitate — We innovate" · CET 2026 | Since 2009</div>
+  </div>
+</footer>
+
+<script>
+  // Gửi đăng ký ngầm vào Google Form (ghi vào Google Sheet của CET).
+  // Thay action và các entry.ID bên dưới bằng Google Form của CET
+  // (mở trang viewform của form, xem nguồn để lấy entry.ID từng câu hỏi).
+  var GFORM = {
+    action: 'https://docs.google.com/forms/d/e/YOUR_CET_FORM_ID/formResponse',
+    map: {
+      'ho_ten': 'entry.0',
+      'dien_thoai': 'entry.0',
+      'email': 'entry.0',
+      'khoa_hoc': 'entry.0',
+      'lich_hoc': 'entry.0',
+      'loi_nhan': 'entry.0'
+    }
+  };
+
+  const form = document.getElementById('regForm');
+  const thankyou = document.getElementById('thankyou');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!form.reportValidity()) return;
+    if (form.querySelector('[name="_honey"]').value) return;
+
+    const btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Đang gửi...';
+
+    // Chế độ demo: chưa gắn Google Form thì chỉ hiển thị lời cảm ơn.
+    if (GFORM.action.includes('YOUR_CET_FORM_ID')) {
+      form.style.display = 'none';
+      thankyou.style.display = 'block';
+      return;
+    }
+
+    const src = new FormData(form);
+    const body = new FormData();
+    Object.keys(GFORM.map).forEach((name) => {
+      body.append(GFORM.map[name], src.get(name) || '');
+    });
+
+    fetch(GFORM.action, { method: 'POST', mode: 'no-cors', body: body })
+      .then(() => {
+        form.style.display = 'none';
+        thankyou.style.display = 'block';
+        thankyou.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      })
+      .catch(() => {
+        btn.disabled = false;
+        btn.textContent = 'Gửi đăng ký';
+        alert('Gửi không thành công, vui lòng thử lại hoặc nhắn Zalo Uyên: zalo.me/0869688153');
+      });
+  });
+</script>
+
+</body>
+</html>
