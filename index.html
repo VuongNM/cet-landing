@@ -222,6 +222,45 @@
     nav.menu { justify-content: center; gap: 14px; }
     section { padding: 56px 0; }
   }
+
+  /* ---------- Floating Zalo button ---------- */
+  .zalo-float {
+    position: fixed; right: 20px; bottom: 20px; z-index: 100;
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none;
+  }
+  .zalo-float .zalo-label {
+    background: #fff; color: var(--navy);
+    font-size: .85rem; font-weight: 700;
+    padding: 8px 14px; border-radius: 999px;
+    box-shadow: 0 4px 14px rgba(0,0,0,.18);
+    white-space: nowrap;
+  }
+  .zalo-float .zalo-circle {
+    width: 58px; height: 58px; border-radius: 50%;
+    background: #0068ff;   /* màu nhận diện Zalo */
+    color: #fff; font-weight: 800; font-size: .95rem;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 6px 18px rgba(0,104,255,.45);
+    transition: transform .15s;
+    position: relative;
+  }
+  .zalo-float:hover .zalo-circle { transform: scale(1.08); }
+  .zalo-float .zalo-circle::after {   /* vòng sóng lan tỏa */
+    content: "";
+    position: absolute; inset: 0;
+    border-radius: 50%;
+    border: 2px solid #0068ff;
+    animation: zalo-pulse 2s ease-out infinite;
+  }
+  @keyframes zalo-pulse {
+    0%   { transform: scale(1);   opacity: .8; }
+    100% { transform: scale(1.7); opacity: 0; }
+  }
+  @media (max-width: 640px) {
+    .zalo-float .zalo-label { display: none; }  /* mobile: chỉ hiện nút tròn */
+    .zalo-float { right: 14px; bottom: 14px; }
+  }
 </style>
 </head>
 <body>
@@ -454,6 +493,11 @@
     <div class="copy">"We don't imitate — We innovate" · CET 2026 | Since 2009</div>
   </div>
 </footer>
+
+<a class="zalo-float" href="https://zalo.me/0869688153" target="_blank" rel="noopener" aria-label="Nhắn Zalo Ms. Uyên">
+  <span class="zalo-label">💬 Nhắn Zalo Ms. Uyên</span>
+  <span class="zalo-circle">Zalo</span>
+</a>
 
 <script>
   // Gửi đăng ký ngầm vào Google Form "Đăng ký khóa học IELTS — CET"
